@@ -16,4 +16,10 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  define: {
+    "process.env": {
+      REACT_APP_SUPABASE_URL: JSON.stringify(process.env.REACT_APP_SUPABASE_URL),
+      REACT_APP_SUPABASE_KEY: JSON.stringify(process.env.REACT_APP_SUPABASE_KEY),
+    },
+  },
 }));

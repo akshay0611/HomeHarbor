@@ -12,6 +12,7 @@ import PropertyDetails from "./pages/PropertyDetails";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ForgotPassword from "./pages/ForgotPassword";
+// Path to your component
 
 // Guide Pages
 import BuyingGuide from "./pages/guides/BuyingGuide";
@@ -48,6 +49,7 @@ const App = () => (
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
+           
             
             {/* Guide Routes */}
             <Route path="/guides/buying" element={<BuyingGuide />} />

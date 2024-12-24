@@ -6,6 +6,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { Mail, Lock, User, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { supabase } from "@/config/supabase"; // Import Supabase client
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -15,9 +16,9 @@ const SignUp = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (password !== confirmPassword) {
       toast({
         title: "Error",
@@ -27,12 +28,31 @@ const SignUp = () => {
       return;
     }
 
-    // For demo purposes, show success toast
-    toast({
-      title: "Account created successfully!",
-      description: "Welcome to HomeHarbor.",
-    });
-    navigate("/signin");
+    try {
+      // Supabase sign-up with redirect URL for email verification
+      const { error } = await supabase.auth.signUp(
+        { email, password },
+        {
+          data: { name }, // Add user metadata like name
+          redirectTo: `${window.location.origin}/signin`, // Redirect to verification-success page
+        }
+      );
+
+      if (error) {
+        throw error; // Handle sign-up error
+      }
+
+      toast({
+        title: "Account created successfully!",
+        description: "Please check your email to verify your account.",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Sign-up Failed",
+        description: error.message || "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
