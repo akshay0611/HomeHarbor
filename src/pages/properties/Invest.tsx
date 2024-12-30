@@ -43,7 +43,7 @@ const Invest = () => {
               Invest in Real Estate
             </h1>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Discover lucrative investment opportunities and grow your wealth through real estate
+              Discover lucrative investment opportunities and grow your wealth through real estate. Unlock the potential of property investments with our expert insights and guidance.
             </p>
             <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
               Start Investing Today
@@ -54,27 +54,27 @@ const Invest = () => {
         {/* Investment Options */}
         <div className="container mx-auto px-4 py-16">
           <h2 className="text-3xl font-bold text-center mb-12 dark:text-white">
-            Investment Opportunities
+            Explore Diverse Investment Opportunities
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <InvestmentCard
               title="Residential Properties"
-              description="Invest in single-family homes, apartments, and condos with high rental demand and appreciation potential."
+              description="Gain ownership of single-family homes, apartments, and condos located in prime neighborhoods. These properties offer consistent rental income and strong long-term appreciation potential."
               icon={Building}
             />
             <InvestmentCard
               title="Commercial Real Estate"
-              description="Explore opportunities in office spaces, retail locations, and industrial properties for steady income."
+              description="Invest in lucrative office spaces, retail centers, and industrial properties, ensuring a steady cash flow and increased market value over time."
               icon={Coins}
             />
             <InvestmentCard
-              title="REITs"
-              description="Invest in Real Estate Investment Trusts for diversified exposure to the property market with lower capital requirements."
+              title="REITs (Real Estate Investment Trusts)"
+              description="Diversify your portfolio with REITs, allowing you to invest in real estate without direct property ownership. Enjoy passive income and broad market exposure with minimal risk."
               icon={PiggyBank}
             />
             <InvestmentCard
               title="Property Development"
-              description="Participate in development projects with potential for significant returns through value appreciation."
+              description="Engage in high-potential property development projects, transforming underutilized spaces into high-value real estate assets for significant returns."
               icon={ChartBarIncreasing}
             />
           </div>
@@ -84,21 +84,21 @@ const Invest = () => {
         <div className="bg-gray-50 dark:bg-gray-800 py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12 dark:text-white">
-              Why Invest with Us
+              Why Choose HomeHarbor for Your Investments
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
                   title: "Expert Guidance",
-                  description: "Our team of experienced professionals will help you make informed investment decisions.",
+                  description: "Leverage the knowledge of our seasoned real estate professionals to navigate the complexities of property investments and maximize your returns.",
                 },
                 {
-                  title: "Market Analysis",
-                  description: "Access detailed market research and property analytics to identify the best opportunities.",
+                  title: "Comprehensive Market Analysis",
+                  description: "Gain access to in-depth market data, property trends, and forecasts to identify the most profitable investment opportunities in the real estate sector.",
                 },
                 {
-                  title: "Portfolio Management",
-                  description: "Professional management of your real estate investments for optimal returns.",
+                  title: "Portfolio Management Services",
+                  description: "Benefit from our end-to-end portfolio management services, ensuring your real estate assets are optimized for consistent growth and profitability.",
                 },
               ].map((feature, index) => (
                 <div
