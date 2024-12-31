@@ -56,10 +56,10 @@ This project is licensed under the MIT License. See the LICENSE file for details
 ## 📷 Screenshots
 
 ### 🏡 Homepage
-![Homepage Screenshot](path/to/homepage-screenshot.png)
+![Homepage Screenshot](/public/assets/HomePage.png)  
 
 ### 🏢 Property Listings
-![Property Listings Screenshot](path/to/listings-screenshot.png)
+![Property Listings Screenshot](/public/assets/PropertyListing.png)
 
 ---
 
