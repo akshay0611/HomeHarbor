@@ -21,8 +21,8 @@ HomeHarbor is a modern real estate web application built using React and TypeScr
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/homeharbor.git
-   cd homeharbor
+   git clone https://github.com/akshay0611/HomeHarbor.git
+   cd HomeHarbor
    ```
 
 2. Install dependencies:
