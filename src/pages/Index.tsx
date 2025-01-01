@@ -51,6 +51,22 @@ const Index = () => {
     },
   ];
 
+  const cities = [
+    { city: "Delhi / NCR", properties: "180,000+ Properties", image: "url_to_delhi_image" },
+    { city: "Mumbai", properties: "47,000+ Properties", image: "url_to_mumbai_image" },
+    { city: "Bangalore", properties: "43,000+ Properties", image: "url_to_bangalore_image" },
+    { city: "Hyderabad", properties: "22,000+ Properties", image: "url_to_hyderabad_image" },
+    { city: "Pune", properties: "47,000+ Properties", image: "url_to_pune_image" },
+    { city: "Kolkata", properties: "27,000+ Properties", image: "url_to_kolkata_image" },
+    { city: "Chennai", properties: "31,000+ Properties", image: "url_to_chennai_image" },
+    { city: "Ahr", properties: "18,000+ Properties", image: "url_to_ahr_image" },
+    // Add more cities as needed
+  ];
+
+  const itemsPerPage = 4; // 4 cities per page
+  const totalPages = Math.ceil(cities.length / itemsPerPage);
+  const [currentPage, setCurrentPage] = useState(0);
+
   return (
     <div className="min-h-screen flex flex-col dark:bg-gray-900">
       <Navbar />
@@ -256,6 +272,40 @@ const Index = () => {
             <p className="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto">
               Before starting your home search, calculate how much you can afford and get pre-approved for a mortgage.
             </p>
+          </div>
+        </div>
+
+        {/* Explore Real Estate in Popular Indian Cities */}
+        <div className="bg-white dark:bg-gray-800 py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12 dark:text-white">
+              Explore Real Estate in Popular Indian Cities
+            </h2>
+            <div className="flex justify-between items-center mb-4">
+              <button 
+                onClick={() => setCurrentPage(currentPage - 1)} 
+                disabled={currentPage === 0} 
+                className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200 disabled:opacity-50"
+              >
+                &lt; Prev
+              </button>
+              <button 
+                onClick={() => setCurrentPage(currentPage + 1)} 
+                disabled={currentPage === totalPages - 1} 
+                className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200 disabled:opacity-50"
+              >
+                Next &gt;
+              </button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {cities.slice(currentPage * 4, (currentPage + 1) * 4).map((item, index) => (
+                <div key={index} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 text-center">
+                  <div className="mb-4" style={{ backgroundImage: item.image, height: '150px', backgroundSize: 'cover', borderRadius: '8px' }} />
+                  <h3 className="text-xl font-semibold mb-2 dark:text-white">{item.city}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{item.properties}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </main>
