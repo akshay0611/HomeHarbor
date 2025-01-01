@@ -62,14 +62,18 @@ const Contact = () => {
                   <Phone className="h-6 w-6 text-purple-600 mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
-                    <p className="text-gray-600">(555) 123-4567</p>
+                    <p className="text-gray-600">
+                      <a href="tel:(555)123-4567" className="hover:underline">(555) 123-4567</a>
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Mail className="h-6 w-6 text-purple-600 mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-gray-600">contact@homeharbor.com</p>
+                    <p className="text-gray-600">
+                      <a href="mailto:contact@homeharbor.com" className="hover:underline">contact@homeharbor.com</a>
+                    </p>
                   </div>
                 </div>
               </div>
