@@ -2,10 +2,28 @@ import { useParams } from "react-router-dom";
 import { propertyData } from "@/data/properties";
 import { Button } from "@/components/ui/button";
 import { MapPin, Bed, Bath, Square, DollarSign } from "lucide-react";
+import { useState } from "react";
 
 const PropertyDetails = () => {
   const { id } = useParams();
   const property = propertyData.find((p) => p.id === id);
+
+  const [isFormVisible, setFormVisible] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    setSuccessMessage('Your message has been sent successfully!');
+    setFormVisible(false);
+    setFormData({ name: '', email: '', message: '' });
+  };
 
   if (!property) {
     return <div>Property not found</div>;
@@ -54,10 +72,48 @@ const PropertyDetails = () => {
               <DollarSign className="h-6 w-6" />
               {property.price.toLocaleString()}
             </div>
-            <Button className="w-full mb-4">Schedule a Tour</Button>
-            <Button variant="outline" className="w-full">
+            <Button className="w-full mb-4" onClick={() => setFormVisible(true)}>Schedule a Tour</Button>
+            <Button variant="outline" className="w-full" onClick={() => setFormVisible(true)}>
               Contact Agent
             </Button>
+
+            {isFormVisible && (
+              <form onSubmit={handleSubmit} className="mt-4">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  className="border p-2 w-full mb-2"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="border p-2 w-full mb-2"
+                />
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  className="border p-2 w-full mb-2"
+                />
+                <Button type="submit" className="w-full">Send Message</Button>
+              </form>
+            )}
+
+            {successMessage && (
+              <div className="mt-4 text-green-600">
+                {successMessage}
+              </div>
+            )}
           </div>
         </div>
       </div>
